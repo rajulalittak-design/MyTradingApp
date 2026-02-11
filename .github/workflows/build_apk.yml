@@ -36,56 +36,13 @@ jobs:
       - name: Build with Buildozer (Docker)
         run: |
           echo "Starting build (release if keystore provided, else debug)"
-          if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ]; then
-            docker run --rm -t -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest bash -lc "python3 - <<'PY'
-      import buildozer, inspect
-      print('buildozer.__file__=', getattr(buildozer, '__file__', None))
-      try:
-        src = inspect.getsource(buildozer.__init__)
-        print('got source from inspect')
-      except Exception:
-        src = None
-      if src:
-        lines = src.splitlines()
-        for i,l in enumerate(lines[660:720], start=661):
-          print(i, l)
-      else:
-        import pathlib
-        p = pathlib.Path(getattr(buildozer, '__file__', ''))
-        if p.exists():
-          s = p.read_text()
-          lines = s.splitlines()
-          for i,l in enumerate(lines[660:720], start=661):
-            print(i, l)
-        else:
-          print('no buildozer source found at', p)
-      PY
-      ; python3 .github/scripts/patch_buildozer.py || true; yes | buildozer android release --verbose"
-          else
-            docker run --rm -t -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest bash -lc "python3 - <<'PY'
-      import buildozer, inspect
-      print('buildozer.__file__=', getattr(buildozer, '__file__', None))
-      try:
-        src = inspect.getsource(buildozer.__init__)
-        print('got source from inspect')
-      except Exception:
-        src = None
-      if src:
-        lines = src.splitlines()
-        for i,l in enumerate(lines[660:720], start=661):
-          print(i, l)
-      else:
-        import pathlib
-        p = pathlib.Path(getattr(buildozer, '__file__', ''))
-        if p.exists():
-          s = p.read_text()
-          lines = s.splitlines()
-          for i,l in enumerate(lines[660:720], start=661):
-            print(i, l)
-        else:
-          print('no buildozer source found at', p)
-      PY
-      ; python3 .github/scripts/patch_buildozer.py || true; yes | buildozer android debug --verbose"
+            if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ]; then
+            docker build -f .github/docker/Dockerfile -t my-buildozer-ci:latest .
+            docker run --rm -t -v "$PWD":/home/user/host -w /home/user/host my-buildozer-ci:latest bash -lc "yes | buildozer android release --verbose"
+            else
+            docker build -f .github/docker/Dockerfile -t my-buildozer-ci:latest .
+            docker run --rm -t -v "$PWD":/home/user/host -w /home/user/host my-buildozer-ci:latest bash -lc "yes | buildozer android debug --verbose"
+            fi
           fi
         env:
           CI: true
