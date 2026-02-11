@@ -1,0 +1,62 @@
+name: Build Android APK (Buildozer Docker)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Copy workbook into mobile_app for bundling
+        run: |
+          python3 mobile_app/copy_workbook.py || true
+
+      - name: Write keystore (if provided)
+        if: secrets.KEYSTORE_BASE64 != ''
+        run: |
+          echo "Writing keystore from secret"
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > my-release-key.jks
+          sed -i "s|#key.store = .*|key.store = $(pwd)/my-release-key.jks|" mobile_app/buildozer.spec || true
+          sed -i "s|#key.alias = .*|key.alias = ${{ secrets.KEY_ALIAS }}|" mobile_app/buildozer.spec || true
+          sed -i "s|#key.store.password = .*|key.store.password = ${{ secrets.KEYSTORE_PASSWORD }}|" mobile_app/buildozer.spec || true
+          sed -i "s|#key.alias.password = .*|key.alias.password = ${{ secrets.KEY_PASSWORD }}|" mobile_app/buildozer.spec || true
+
+      - name: Build with Buildozer (Docker)
+        run: |
+          echo "Starting build (release if keystore provided, else debug)"
+          if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ]; then
+            docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest buildozer android release --verbose
+          else
+            docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest buildozer android debug --verbose
+          fi
+        env:
+          CI: true
+
+      - name: Show built artifacts
+        run: |
+          echo "bin/ contents:"
+          ls -la bin || true
+
+      - name: Upload APK
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: bin/
+
+      - name: Create GitHub Release and attach APK (optional)
+        if: success() && secrets.KEYSTORE_BASE64 != ''
+        uses: softprops/action-gh-release@v1
+        with:
+          files: bin/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
