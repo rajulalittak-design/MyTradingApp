@@ -37,9 +37,9 @@ jobs:
         run: |
           echo "Starting build (release if keystore provided, else debug)"
           if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ]; then
-            docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest bash -lc "sed -i \"s/cont = input('Are you sure you want to continue \\\[y\\\/n\\\]? ')/cont = 'y'/\" /home/user/.venv/lib/python3.12/site-packages/buildozer/__init__.py || true; buildozer android release --verbose"
+            docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest bash -lc "python3 -c \"from pathlib import Path; p=Path('/home/user/.venv/lib/python3.12/site-packages/buildozer/__init__.py'); s=p.read_text(); s=s.replace(\"cont = input('Are you sure you want to continue [y/n]? ')\", \"cont = 'y'\"); p.write_text(s); print('patched')\" || true; buildozer android release --verbose"
           else
-            docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest bash -lc "sed -i \"s/cont = input('Are you sure you want to continue \\\[y\\\/n\\\]? ')/cont = 'y'/\" /home/user/.venv/lib/python3.12/site-packages/buildozer/__init__.py || true; buildozer android debug --verbose"
+            docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest bash -lc "python3 -c \"from pathlib import Path; p=Path('/home/user/.venv/lib/python3.12/site-packages/buildozer/__init__.py'); s=p.read_text(); s=s.replace(\"cont = input('Are you sure you want to continue [y/n]? ')\", \"cont = 'y'\"); p.write_text(s); print('patched')\" || true; buildozer android debug --verbose"
           fi
         env:
           CI: true
