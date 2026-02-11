@@ -37,9 +37,9 @@ jobs:
         run: |
           echo "Starting build (release if keystore provided, else debug)"
           if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ]; then
-            docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest buildozer android release --verbose
+            docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest bash -lc "yes | buildozer android release --verbose"
           else
-            docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest buildozer android debug --verbose
+            docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest bash -lc "yes | buildozer android debug --verbose"
           fi
         env:
           CI: true
