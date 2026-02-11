@@ -1,0 +1,242 @@
+﻿2026-02-11T09:41:12.7010792Z Current runner version: '2.331.0'
+2026-02-11T09:41:12.7034415Z ##[group]Runner Image Provisioner
+2026-02-11T09:41:12.7035278Z Hosted Compute Agent
+2026-02-11T09:41:12.7035932Z Version: 20260123.484
+2026-02-11T09:41:12.7036591Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+2026-02-11T09:41:12.7037317Z Build Date: 2026-01-23T19:41:17Z
+2026-02-11T09:41:12.7038041Z Worker ID: {392f2940-2cc3-4581-b567-e795671ee34a}
+2026-02-11T09:41:12.7038728Z Azure Region: eastus
+2026-02-11T09:41:12.7039298Z ##[endgroup]
+2026-02-11T09:41:12.7041147Z ##[group]Operating System
+2026-02-11T09:41:12.7041809Z Ubuntu
+2026-02-11T09:41:12.7042274Z 24.04.3
+2026-02-11T09:41:12.7042792Z LTS
+2026-02-11T09:41:12.7043252Z ##[endgroup]
+2026-02-11T09:41:12.7043772Z ##[group]Runner Image
+2026-02-11T09:41:12.7044592Z Image: ubuntu-24.04
+2026-02-11T09:41:12.7045110Z Version: 20260201.15.1
+2026-02-11T09:41:12.7046296Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
+2026-02-11T09:41:12.7047825Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
+2026-02-11T09:41:12.7048831Z ##[endgroup]
+2026-02-11T09:41:12.7049963Z ##[group]GITHUB_TOKEN Permissions
+2026-02-11T09:41:12.7051728Z Contents: read
+2026-02-11T09:41:12.7052381Z Metadata: read
+2026-02-11T09:41:12.7052915Z Packages: read
+2026-02-11T09:41:12.7053447Z ##[endgroup]
+2026-02-11T09:41:12.7055806Z Secret source: Actions
+2026-02-11T09:41:12.7056654Z Prepare workflow directory
+2026-02-11T09:41:12.7370659Z Prepare all required actions
+2026-02-11T09:41:12.7408139Z Getting action download info
+2026-02-11T09:41:13.0962134Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-02-11T09:41:13.2133550Z Download action repository 'actions/setup-python@v4' (SHA:7f4fc3e22c37d6ff65e88745f38bd3157c663f7c)
+2026-02-11T09:41:13.3517557Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-02-11T09:41:13.6224944Z Complete job name: build-apk
+2026-02-11T09:41:13.6946738Z ##[group]Run actions/checkout@v4
+2026-02-11T09:41:13.6947645Z with:
+2026-02-11T09:41:13.6948133Z   repository: rajulalittak-design/MyTradingApp
+2026-02-11T09:41:13.6948882Z   token: ***
+2026-02-11T09:41:13.6949302Z   ssh-strict: true
+2026-02-11T09:41:13.6949711Z   ssh-user: git
+2026-02-11T09:41:13.6950136Z   persist-credentials: true
+2026-02-11T09:41:13.6950618Z   clean: true
+2026-02-11T09:41:13.6951035Z   sparse-checkout-cone-mode: true
+2026-02-11T09:41:13.6951557Z   fetch-depth: 1
+2026-02-11T09:41:13.6951965Z   fetch-tags: false
+2026-02-11T09:41:13.6952406Z   show-progress: true
+2026-02-11T09:41:13.6952825Z   lfs: false
+2026-02-11T09:41:13.6953297Z   submodules: false
+2026-02-11T09:41:13.6953726Z   set-safe-directory: true
+2026-02-11T09:41:13.6954627Z ##[endgroup]
+2026-02-11T09:41:13.8124571Z Syncing repository: rajulalittak-design/MyTradingApp
+2026-02-11T09:41:13.8127659Z ##[group]Getting Git version info
+2026-02-11T09:41:13.8128540Z Working directory is '/home/runner/work/MyTradingApp/MyTradingApp'
+2026-02-11T09:41:13.8129637Z [command]/usr/bin/git version
+2026-02-11T09:41:13.8219908Z git version 2.52.0
+2026-02-11T09:41:13.8245660Z ##[endgroup]
+2026-02-11T09:41:13.8259374Z Temporarily overriding HOME='/home/runner/work/_temp/0a86bea8-873e-43cf-9136-28c2f1cf1aa7' before making global git config changes
+2026-02-11T09:41:13.8271845Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-11T09:41:13.8273135Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/MyTradingApp/MyTradingApp
+2026-02-11T09:41:13.8308410Z Deleting the contents of '/home/runner/work/MyTradingApp/MyTradingApp'
+2026-02-11T09:41:13.8311641Z ##[group]Initializing the repository
+2026-02-11T09:41:13.8316057Z [command]/usr/bin/git init /home/runner/work/MyTradingApp/MyTradingApp
+2026-02-11T09:41:13.8423051Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-02-11T09:41:13.8424305Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-02-11T09:41:13.8426255Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-02-11T09:41:13.8427520Z hint: call:
+2026-02-11T09:41:13.8428119Z hint:
+2026-02-11T09:41:13.8429057Z hint: 	git config --global init.defaultBranch <name>
+2026-02-11T09:41:13.8429912Z hint:
+2026-02-11T09:41:13.8430515Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-02-11T09:41:13.8431443Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-02-11T09:41:13.8432173Z hint:
+2026-02-11T09:41:13.8432576Z hint: 	git branch -m <name>
+2026-02-11T09:41:13.8433046Z hint:
+2026-02-11T09:41:13.8433949Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-02-11T09:41:13.8435469Z Initialized empty Git repository in /home/runner/work/MyTradingApp/MyTradingApp/.git/
+2026-02-11T09:41:13.8439494Z [command]/usr/bin/git remote add origin https://github.com/rajulalittak-design/MyTradingApp
+2026-02-11T09:41:13.8471793Z ##[endgroup]
+2026-02-11T09:41:13.8472560Z ##[group]Disabling automatic garbage collection
+2026-02-11T09:41:13.8475731Z [command]/usr/bin/git config --local gc.auto 0
+2026-02-11T09:41:13.8502648Z ##[endgroup]
+2026-02-11T09:41:13.8503344Z ##[group]Setting up auth
+2026-02-11T09:41:13.8509375Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-11T09:41:13.8538934Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-11T09:41:13.8891523Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-11T09:41:13.8922098Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-11T09:41:13.9140562Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-11T09:41:13.9170692Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-11T09:41:13.9403946Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-02-11T09:41:13.9438055Z ##[endgroup]
+2026-02-11T09:41:13.9439342Z ##[group]Fetching the repository
+2026-02-11T09:41:13.9448287Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +054c2a0c3e845f60b626e230d3655c6edc1d2f0d:refs/remotes/origin/main
+2026-02-11T09:41:14.1340236Z From https://github.com/rajulalittak-design/MyTradingApp
+2026-02-11T09:41:14.1341606Z  * [new ref]         054c2a0c3e845f60b626e230d3655c6edc1d2f0d -> origin/main
+2026-02-11T09:41:14.1417548Z ##[endgroup]
+2026-02-11T09:41:14.1418322Z ##[group]Determining the checkout info
+2026-02-11T09:41:14.1419431Z ##[endgroup]
+2026-02-11T09:41:14.1424704Z [command]/usr/bin/git sparse-checkout disable
+2026-02-11T09:41:14.1465124Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-02-11T09:41:14.1490012Z ##[group]Checking out the ref
+2026-02-11T09:41:14.1493687Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-02-11T09:41:14.1554950Z Switched to a new branch 'main'
+2026-02-11T09:41:14.1557803Z branch 'main' set up to track 'origin/main'.
+2026-02-11T09:41:14.1564567Z ##[endgroup]
+2026-02-11T09:41:14.1597850Z [command]/usr/bin/git log -1 --format=%H
+2026-02-11T09:41:14.1619405Z 054c2a0c3e845f60b626e230d3655c6edc1d2f0d
+2026-02-11T09:41:14.1862075Z ##[group]Run actions/setup-python@v4
+2026-02-11T09:41:14.1862627Z with:
+2026-02-11T09:41:14.1863017Z   python-version: 3.10
+2026-02-11T09:41:14.1863469Z   check-latest: false
+2026-02-11T09:41:14.1864198Z   token: ***
+2026-02-11T09:41:14.1864663Z   update-environment: true
+2026-02-11T09:41:14.1865334Z   allow-prereleases: false
+2026-02-11T09:41:14.1865785Z ##[endgroup]
+2026-02-11T09:41:14.3544246Z ##[group]Installed versions
+2026-02-11T09:41:14.3680215Z Successfully set up CPython (3.10.19)
+2026-02-11T09:41:14.3681674Z ##[endgroup]
+2026-02-11T09:41:14.3812103Z ##[group]Run python3 mobile_app/copy_workbook.py || true
+2026-02-11T09:41:14.3813414Z [36;1mpython3 mobile_app/copy_workbook.py || true[0m
+2026-02-11T09:41:14.3949393Z shell: /usr/bin/bash -e {0}
+2026-02-11T09:41:14.3950073Z env:
+2026-02-11T09:41:14.3950865Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.3952278Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib/pkgconfig
+2026-02-11T09:41:14.3953683Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.3955060Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.3956313Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.3957611Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib
+2026-02-11T09:41:14.3958647Z ##[endgroup]
+2026-02-11T09:41:14.7618709Z Copied /home/runner/work/MyTradingApp/MyTradingApp/JOURNAL.xlsm -> /home/runner/work/MyTradingApp/MyTradingApp/mobile_app/JOURNAL.xlsm
+2026-02-11T09:41:14.7742381Z ##[group]Run echo "Writing keystore from secret"
+2026-02-11T09:41:14.7743969Z [36;1mecho "Writing keystore from secret"[0m
+2026-02-11T09:41:14.7745575Z [36;1mif [ -n "" ]; then[0m
+2026-02-11T09:41:14.7746915Z [36;1m  echo "" | base64 --decode > my-release-key.jks[0m
+2026-02-11T09:41:14.7749257Z [36;1m  sed -i "s|#key.store = .*|key.store = $(pwd)/my-release-key.jks|" mobile_app/buildozer.spec || true[0m
+2026-02-11T09:41:14.7751926Z [36;1m  sed -i "s|#key.alias = .*|key.alias = |" mobile_app/buildozer.spec || true[0m
+2026-02-11T09:41:14.7754757Z [36;1m  sed -i "s|#key.store.password = .*|key.store.password = |" mobile_app/buildozer.spec || true[0m
+2026-02-11T09:41:14.7757723Z [36;1m  sed -i "s|#key.alias.password = .*|key.alias.password = |" mobile_app/buildozer.spec || true[0m
+2026-02-11T09:41:14.7759875Z [36;1melse[0m
+2026-02-11T09:41:14.7761127Z [36;1m  echo "No keystore provided; skipping keystore write"[0m
+2026-02-11T09:41:14.7762694Z [36;1mfi[0m
+2026-02-11T09:41:14.7798055Z shell: /usr/bin/bash -e {0}
+2026-02-11T09:41:14.7799182Z env:
+2026-02-11T09:41:14.7800366Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.7802818Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib/pkgconfig
+2026-02-11T09:41:14.7805363Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.7807683Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.7809526Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.7811353Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib
+2026-02-11T09:41:14.7812873Z ##[endgroup]
+2026-02-11T09:41:14.7940961Z Writing keystore from secret
+2026-02-11T09:41:14.7943091Z No keystore provided; skipping keystore write
+2026-02-11T09:41:14.8013998Z ##[group]Run echo "Starting build (release if keystore provided, else debug)"
+2026-02-11T09:41:14.8016865Z [36;1mecho "Starting build (release if keystore provided, else debug)"[0m
+2026-02-11T09:41:14.8018511Z [36;1mif [ -n "" ]; then[0m
+2026-02-11T09:41:14.8020918Z [36;1m  docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest bash -lc "yes | buildozer android release --verbose"[0m
+2026-02-11T09:41:14.8023476Z [36;1melse[0m
+2026-02-11T09:41:14.8025810Z [36;1m  docker run --rm -v "$PWD":/home/user/host -w /home/user/host kivy/buildozer:latest bash -lc "yes | buildozer android debug --verbose"[0m
+2026-02-11T09:41:14.8028273Z [36;1mfi[0m
+2026-02-11T09:41:14.8061095Z shell: /usr/bin/bash -e {0}
+2026-02-11T09:41:14.8062051Z env:
+2026-02-11T09:41:14.8063041Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.8064931Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib/pkgconfig
+2026-02-11T09:41:14.8066920Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.8068526Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.8070158Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+2026-02-11T09:41:14.8071795Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib
+2026-02-11T09:41:14.8073150Z   CI: true
+2026-02-11T09:41:14.8073873Z ##[endgroup]
+2026-02-11T09:41:14.8142388Z Starting build (release if keystore provided, else debug)
+2026-02-11T09:41:14.9024875Z Unable to find image 'kivy/buildozer:latest' locally
+2026-02-11T09:41:15.1182499Z latest: Pulling from kivy/buildozer
+2026-02-11T09:41:15.1951457Z 20043066d3d5: Pulling fs layer
+2026-02-11T09:41:15.1952962Z 59a277335341: Pulling fs layer
+2026-02-11T09:41:15.1954722Z 6c47e7c92741: Pulling fs layer
+2026-02-11T09:41:15.1955961Z 65b32c7fac7b: Pulling fs layer
+2026-02-11T09:41:15.1957131Z 3849156128e5: Pulling fs layer
+2026-02-11T09:41:15.1958376Z 06b6041f3bc4: Pulling fs layer
+2026-02-11T09:41:15.1959750Z 26b6d11d9c0a: Pulling fs layer
+2026-02-11T09:41:15.1960744Z 0e1e56d6653c: Pulling fs layer
+2026-02-11T09:41:15.1961686Z 3849156128e5: Waiting
+2026-02-11T09:41:15.1962506Z 06b6041f3bc4: Waiting
+2026-02-11T09:41:15.1963318Z 26b6d11d9c0a: Waiting
+2026-02-11T09:41:15.1964357Z 0e1e56d6653c: Waiting
+2026-02-11T09:41:15.1965184Z 65b32c7fac7b: Waiting
+2026-02-11T09:41:15.3754929Z 20043066d3d5: Verifying Checksum
+2026-02-11T09:41:15.3756871Z 20043066d3d5: Download complete
+2026-02-11T09:41:15.4504933Z 65b32c7fac7b: Verifying Checksum
+2026-02-11T09:41:15.4508347Z 65b32c7fac7b: Download complete
+2026-02-11T09:41:15.5105572Z 3849156128e5: Verifying Checksum
+2026-02-11T09:41:15.5109172Z 3849156128e5: Download complete
+2026-02-11T09:41:15.5773381Z 06b6041f3bc4: Verifying Checksum
+2026-02-11T09:41:15.5777482Z 06b6041f3bc4: Download complete
+2026-02-11T09:41:15.6199349Z 59a277335341: Verifying Checksum
+2026-02-11T09:41:15.6201140Z 59a277335341: Download complete
+2026-02-11T09:41:15.6456294Z 26b6d11d9c0a: Verifying Checksum
+2026-02-11T09:41:15.6459258Z 26b6d11d9c0a: Download complete
+2026-02-11T09:41:15.7227780Z 0e1e56d6653c: Verifying Checksum
+2026-02-11T09:41:15.7229529Z 0e1e56d6653c: Download complete
+2026-02-11T09:41:16.5455820Z 20043066d3d5: Pull complete
+2026-02-11T09:41:17.9556872Z 59a277335341: Pull complete
+2026-02-11T09:41:19.0750129Z 6c47e7c92741: Verifying Checksum
+2026-02-11T09:41:19.0750757Z 6c47e7c92741: Download complete
+2026-02-11T09:41:31.4083596Z 6c47e7c92741: Pull complete
+2026-02-11T09:41:31.7442996Z 65b32c7fac7b: Pull complete
+2026-02-11T09:41:31.7557447Z 3849156128e5: Pull complete
+2026-02-11T09:41:31.7921382Z 06b6041f3bc4: Pull complete
+2026-02-11T09:41:31.8050364Z 26b6d11d9c0a: Pull complete
+2026-02-11T09:41:32.4628657Z 0e1e56d6653c: Pull complete
+2026-02-11T09:41:32.4670791Z Digest: sha256:a291fd4c0c9dfce036c7c79c820af6faa6461d386969ea00303b45164ff37ac4
+2026-02-11T09:41:32.4681958Z Status: Downloaded newer image for kivy/buildozer:latest
+2026-02-11T09:41:33.6968627Z Traceback (most recent call last):
+2026-02-11T09:41:33.6969690Z [91m[1mBuildozer is running as root![0m
+2026-02-11T09:41:33.6976665Z   File "/home/user/.venv/bin/buildozer", line 8, in <module>
+2026-02-11T09:41:33.6977143Z     sys.exit(main())
+2026-02-11T09:41:33.6977409Z              ^^^^^^
+2026-02-11T09:41:33.6977958Z   File "/home/user/.venv/lib/python3.12/site-packages/buildozer/scripts/client.py", line 16, in main
+2026-02-11T09:41:33.6978561Z     Buildozer().run_command(sys.argv[1:])
+2026-02-11T09:41:33.6979165Z   File "/home/user/.venv/lib/python3.12/site-packages/buildozer/__init__.py", line 663, in run_command
+2026-02-11T09:41:33.6979738Z     self.check_root()
+2026-02-11T09:41:33.6980189Z   File "/home/user/.venv/lib/python3.12/site-packages/buildozer/__init__.py", line 702, in check_root
+2026-02-11T09:41:33.6980700Z     cont = input('Are you sure you want to continue [y/n]? ')
+2026-02-11T09:41:33.6981021Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-02-11T09:41:33.6981295Z EOFError: EOF when reading a line
+2026-02-11T09:41:33.6982090Z [91mThis is [1mnot[0m [91mrecommended, and may lead to problems later.[0m
+2026-02-11T09:41:33.8429426Z Are you sure you want to continue [y/n]? 
+2026-02-11T09:41:33.8440476Z ##[error]Process completed with exit code 1.
+2026-02-11T09:41:33.8564239Z Post job cleanup.
+2026-02-11T09:41:33.9493217Z [command]/usr/bin/git version
+2026-02-11T09:41:33.9528726Z git version 2.52.0
+2026-02-11T09:41:33.9570461Z Temporarily overriding HOME='/home/runner/work/_temp/5b9b97ca-5476-4e6a-bc99-958de0a798dd' before making global git config changes
+2026-02-11T09:41:33.9571624Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-11T09:41:33.9576156Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/MyTradingApp/MyTradingApp
+2026-02-11T09:41:33.9611162Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-11T09:41:33.9643430Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-11T09:41:33.9878171Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-11T09:41:33.9899203Z http.https://github.com/.extraheader
+2026-02-11T09:41:33.9911196Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-02-11T09:41:33.9932141Z error: could not lock config file .git/config: Permission denied
+2026-02-11T09:41:33.9952840Z ##[warning]Failed to remove 'http.https://github.com/.extraheader' from the git config
+2026-02-11T09:41:33.9954926Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-11T09:41:34.0170727Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-11T09:41:34.0202717Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-11T09:41:34.0539222Z Cleaning up orphan processes

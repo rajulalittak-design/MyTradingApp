@@ -40,12 +40,8 @@ function Get-LatestRun(){
         $resp = Invoke-RestMethod -Uri $url -Headers $headers -Method GET -ErrorAction Stop
     } catch { return $null }
     if (-not $resp.workflow_runs){ return $null }
-    $runs = $resp.workflow_runs
-    # Prefer latest completed successful run
-    $succ = $runs | Where-Object { $_.status -eq 'completed' -and $_.conclusion -eq 'success' } | Select-Object -First 1
-    if ($succ) { return $succ }
-    $comp = $runs | Where-Object { $_.status -eq 'completed' } | Select-Object -First 1
-    if ($comp) { return $comp }
+    $runs = $resp.workflow_runs | Sort-Object {[datetime]$_.created_at} -Descending
+    # Return the most recent run (newest) so we can poll its status
     return $runs | Select-Object -First 1
 }
 
